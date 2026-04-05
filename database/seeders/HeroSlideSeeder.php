@@ -1,0 +1,176 @@
+<?php
+
+namespace Database\Seeders;
+
+use App\Models\HeroSlide;
+use App\Models\HeroSettings;
+use Illuminate\Database\Seeder;
+
+class HeroSlideSeeder extends Seeder
+{
+    public function run(): void
+    {
+        $pageKey = 'home';
+        
+        HeroSettings::updateOrCreate(
+            ['page_key' => $pageKey],
+            [
+                'title' => 'Home Hero',
+                'is_active' => true,
+                'section_type' => 'slideshow',
+                'enable_slideshow' => true,
+                'slideshow_interval' => 5000,
+                'slideshow_autoplay' => true,
+                'slideshow_navigation' => true,
+                'slideshow_pagination' => true,
+                'height' => '85vh',
+                'content_position' => 'center',
+            ]
+        );
+
+        $slides = [
+            [
+                'slide_key' => 'home',
+                'order' => 0,
+                'title_en' => 'International Legal Studies in Cambodia',
+                'title_km' => 'International Legal Studies in Cambodia',
+                'subtitle_en' => 'Welcome to NUMiLaw',
+                'subtitle_km' => 'Welcome to NUMiLaw',
+                'description_en' => "Join Cambodia's premier international program for legal education, offering dual degrees and global partnerships with leading universities worldwide.",
+                'description_km' => "Join Cambodia's premier international program for legal education, offering dual degrees and global partnerships with leading universities worldwide.",
+                'button_text_en' => 'Explore Programs',
+                'button_text_km' => 'Explore Programs',
+                'button_url' => '/academic-programs',
+                'button_icon' => 'bi bi-arrow-right',
+                'secondary_button_text_en' => 'Learn More',
+                'secondary_button_text_km' => 'Learn More',
+                'secondary_button_url' => '/about',
+                'image' => 'hero-slides/home_default_1.jpg',
+                'theme' => 'burgundy',
+                'use_theme' => true,
+                'content_position' => 'left',
+                'show_content' => true,
+                'overlay_opacity' => 'medium',
+                'show_animation' => true,
+                'animation_type' => 'fade',
+                'is_active' => true,
+                'view_count' => 0,
+            ],
+            [
+                'slide_key' => 'home',
+                'order' => 1,
+                'title_en' => 'Dual Degree Programs',
+                'title_km' => 'Dual Degree Programs',
+                'subtitle_en' => 'International Partnerships',
+                'subtitle_km' => 'International Partnerships',
+                'description_en' => 'Earn degrees from top universities in Cambodia and abroad. Our partnerships with leading institutions in the UK, USA, Australia, and Asia ensure globally recognized qualifications.',
+                'description_km' => 'Earn degrees from top universities in Cambodia and abroad.',
+                'button_text_en' => 'Learn More',
+                'button_text_km' => 'Learn More',
+                'button_url' => '/academic-programs',
+                'button_icon' => 'bi bi-mortarboard',
+                'secondary_button_text_en' => 'View Partners',
+                'secondary_button_text_km' => 'View Partners',
+                'secondary_button_url' => '/partners',
+                'image' => 'hero-slides/home_default_2.jpg',
+                'theme' => 'gradient',
+                'use_theme' => true,
+                'content_position' => 'left',
+                'show_content' => true,
+                'overlay_opacity' => 'medium',
+                'show_animation' => true,
+                'animation_type' => 'slide-up',
+                'is_active' => true,
+                'view_count' => 0,
+            ],
+            [
+                'slide_key' => 'home',
+                'order' => 2,
+                'title_en' => 'Moot Court & Practical Training',
+                'title_km' => 'Moot Court & Practical Training',
+                'subtitle_en' => 'Hands-On Legal Experience',
+                'subtitle_km' => 'Hands-On Legal Experience',
+                'description_en' => 'Develop practical legal skills through mock trials, legal clinics, and real-world case studies. Our moot court program prepares you for a successful legal career.',
+                'description_km' => 'Develop practical legal skills through mock trials and real-world case studies.',
+                'button_text_en' => 'View Details',
+                'button_text_km' => 'View Details',
+                'button_url' => '/moot-courts',
+                'button_icon' => 'bi bi-gavel',
+                'secondary_button_text_en' => 'Our Achievements',
+                'secondary_button_text_km' => 'Our Achievements',
+                'secondary_button_url' => '/moot-courts',
+                'image' => 'hero-slides/home_default_3.jpg',
+                'theme' => 'dark',
+                'use_theme' => true,
+                'content_position' => 'left',
+                'show_content' => true,
+                'overlay_opacity' => 'heavy',
+                'show_animation' => true,
+                'animation_type' => 'slide-left',
+                'is_active' => true,
+                'view_count' => 0,
+            ],
+            [
+                'slide_key' => 'home',
+                'order' => 3,
+                'title_en' => 'Expert Faculty',
+                'title_km' => 'Expert Faculty',
+                'subtitle_en' => 'Learn from the Best',
+                'subtitle_km' => 'Learn from the Best',
+                'description_en' => 'Our distinguished professors bring international experience and academic excellence to your legal education journey. Learn from leading legal scholars and practitioners.',
+                'description_km' => 'Learn from leading legal scholars and practitioners.',
+                'button_text_en' => 'Meet Faculty',
+                'button_text_km' => 'Meet Faculty',
+                'button_url' => '/faculty',
+                'button_icon' => 'bi bi-people',
+                'secondary_button_text_en' => 'About Us',
+                'secondary_button_text_km' => 'About Us',
+                'secondary_button_url' => '/about',
+                'image' => 'hero-slides/home_default_4.jpg',
+                'theme' => 'gold',
+                'use_theme' => true,
+                'content_position' => 'left',
+                'show_content' => true,
+                'overlay_opacity' => 'medium',
+                'show_animation' => true,
+                'animation_type' => 'zoom',
+                'is_active' => true,
+                'view_count' => 0,
+            ],
+            [
+                'slide_key' => 'home',
+                'order' => 4,
+                'title_en' => 'Admissions Open',
+                'title_km' => 'Admissions Open',
+                'subtitle_en' => 'Start Your Journey',
+                'subtitle_km' => 'Start Your Journey',
+                'description_en' => "Applications are now open for the upcoming academic year. Join the next generation of legal professionals and shape the future of Cambodia's legal system.",
+                'description_km' => "Join the next generation of legal professionals.",
+                'button_text_en' => 'Apply Now',
+                'button_text_km' => 'Apply Now',
+                'button_url' => '/admissions/apply',
+                'button_icon' => 'bi bi-send',
+                'secondary_button_text_en' => 'View Requirements',
+                'secondary_button_text_km' => 'View Requirements',
+                'secondary_button_url' => '/admissions/requirements',
+                'image' => 'hero-slides/home_default_5.jpg',
+                'theme' => 'burgundy',
+                'use_theme' => true,
+                'content_position' => 'left',
+                'show_content' => true,
+                'overlay_opacity' => 'light',
+                'show_animation' => true,
+                'animation_type' => 'slide-up',
+                'is_active' => true,
+                'view_count' => 0,
+            ],
+        ];
+
+        foreach ($slides as $slide) {
+            HeroSlide::updateOrCreate(
+                ['slide_key' => $slide['slide_key'], 'order' => $slide['order']],
+                $slide
+            );
+        }
+    }
+}

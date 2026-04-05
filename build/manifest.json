@@ -1,0 +1,39 @@
+{
+  "_client-mm1hTvOg.js": {
+    "file": "assets/client-mm1hTvOg.js",
+    "name": "client"
+  },
+  "resources/css/app.css": {
+    "file": "assets/app-CL4vynUE.css",
+    "src": "resources/css/app.css",
+    "isEntry": true,
+    "name": "app",
+    "names": [
+      "app.css"
+    ]
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-DIuewKhF.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true
+  },
+  "resources/js/react/alumni-app.js": {
+    "file": "assets/alumni-app-XINMb9RS.js",
+    "name": "alumni-app",
+    "src": "resources/js/react/alumni-app.js",
+    "isEntry": true,
+    "imports": [
+      "_client-mm1hTvOg.js"
+    ]
+  },
+  "resources/js/react/landing.jsx": {
+    "file": "assets/landing-C8HzJhpN.js",
+    "name": "landing",
+    "src": "resources/js/react/landing.jsx",
+    "isEntry": true,
+    "imports": [
+      "_client-mm1hTvOg.js"
+    ]
+  }
+}

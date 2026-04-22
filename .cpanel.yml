@@ -1,7 +1,7 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/ilawnum/public_html
+    - export DEPLOYPATH=/home/ilawnum/numilaw
     - /bin/cp -R app $DEPLOYPATH/
     - /bin/cp -R bootstrap $DEPLOYPATH/
     - /bin/cp -R config $DEPLOYPATH/

@@ -4,21 +4,190 @@
 
 @push('styles')
 <style>
-    .admission-hero {
-        background: linear-gradient(135deg, #003A46 0%, #004d5c 50%, #005f6b 100%);
-        padding: 100px 0;
-        position: relative;
-        overflow: hidden;
+    :root {
+        --brand-primary: #003A46;
+        --brand-light: #005f73;
+        --brand-accent: #0a9396;
+        --brand-gradient: linear-gradient(135deg, #003A46 0%, #005f73 50%, #0a9396 100%);
     }
     
-    .admission-hero::before {
-        content: '';
+    .admission-header {
+        position: relative;
+        overflow: hidden;
+        background: #f5f8ff;
+        min-height: 350px;
+        padding: 65px 0;
+    }
+
+    .admission-header .blob-wrapper {
         position: absolute;
         top: 0;
         left: 0;
         right: 0;
         bottom: 0;
-        background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        z-index: 1;
+    }
+
+    .admission-header .blob {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(80px);
+        opacity: 0.038;
+        mix-blend-mode: multiply;
+    }
+
+    .admission-header .b1 {
+        width: 150%; height: 150%;
+        top: -50px; left: -25%;
+        animation: moveB1 14s ease-in-out infinite alternate, colorB1 10s ease-in-out infinite alternate;
+    }
+    .admission-header .b2 {
+        width: 140%; height: 140%;
+        top: -30px; left: -20%;
+        animation: moveB2 17s ease-in-out infinite alternate, colorB2 13s ease-in-out infinite alternate;
+    }
+    .admission-header .b3 {
+        width: 130%; height: 130%;
+        top: -10px; left: -15%;
+        animation: moveB3 20s ease-in-out infinite alternate, colorB3 8s ease-in-out infinite alternate;
+    }
+    .admission-header .b4 {
+        width: 120%; height: 120%;
+        top: 10px; left: -10%;
+        animation: moveB4 11s ease-in-out infinite alternate, colorB4 16s ease-in-out infinite alternate;
+    }
+    .admission-header .b5 {
+        width: 110%; height: 110%;
+        top: 30px; left: -5%;
+        animation: moveB5 15s ease-in-out infinite alternate, colorB5 12s ease-in-out infinite alternate;
+    }
+
+    @keyframes moveB1 {
+        0%   { transform: translate(0px, 0px) scale(1); }
+        50%  { transform: translate(-40px, 30px) scale(1.1); }
+        100% { transform: translate(20px, -40px) scale(0.92); }
+    }
+    @keyframes moveB2 {
+        0%   { transform: translate(0px, 0px) scale(1); }
+        50%  { transform: translate(35px, -25px) scale(0.93); }
+        100% { transform: translate(-20px, 40px) scale(1.08); }
+    }
+    @keyframes moveB3 {
+        0%   { transform: translate(0px, 0px) scale(1); }
+        50%  { transform: translate(-30px, -35px) scale(1.06); }
+        100% { transform: translate(40px, 20px) scale(0.94); }
+    }
+    @keyframes moveB4 {
+        0%   { transform: translate(0px, 0px) scale(1); }
+        50%  { transform: translate(25px, 30px) scale(1.05); }
+        100% { transform: translate(-35px, -20px) scale(0.96); }
+    }
+    @keyframes moveB5 {
+        0%   { transform: translate(0px, 0px) scale(1); }
+        50%  { transform: translate(-50px, 20px) scale(1.08); }
+        100% { transform: translate(30px, -30px) scale(0.95); }
+    }
+
+    @keyframes colorB1 {
+        0%   { background: #50e878; }
+        25%  { background: #c8f040; }
+        50%  { background: #30d8c0; }
+        75%  { background: #a0f060; }
+        100% { background: #50e878; }
+    }
+    @keyframes colorB2 {
+        0%   { background: #b8f050; }
+        25%  { background: #48e8c8; }
+        50%  { background: #a8f030; }
+        75%  { background: #68f028; }
+        100% { background: #b8f050; }
+    }
+    @keyframes colorB3 {
+        0%   { background: #28e8a0; }
+        25%  { background: #f0d830; }
+        50%  { background: #38e860; }
+        75%  { background: #d8f040; }
+        100% { background: #28e8a0; }
+    }
+    @keyframes colorB4 {
+        0%   { background: #c0f048; }
+        25%  { background: #38e8b8; }
+        50%  { background: #88f038; }
+        75%  { background: #18e888; }
+        100% { background: #c0f048; }
+    }
+    @keyframes colorB5 {
+        0%   { background: #58e870; }
+        25%  { background: #d0f028; }
+        50%  { background: #40e880; }
+        75%  { background: #f05840; }
+        100% { background: #58e870; }
+    }
+    
+    .header-content {
+        position: relative;
+        z-index: 2;
+        margin-top: 30px;
+    }
+    
+    .header-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: var(--brand-primary);
+        margin-bottom: 0.5rem;
+    }
+    
+    .header-subtitle {
+        font-size: 1.1rem;
+        color: #6b7280;
+    }
+    
+    .breadcrumb-nav {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        font-size: 0.875rem;
+    }
+    
+    .breadcrumb-nav li {
+        display: flex;
+        align-items: center;
+    }
+    
+    .breadcrumb-nav li a {
+        color: var(--brand-primary);
+        text-decoration: none;
+        opacity: 0.7;
+        transition: opacity 0.2s;
+    }
+    
+    .breadcrumb-nav li a:hover {
+        opacity: 1;
+    }
+    
+    .breadcrumb-nav li::after {
+        content: '/';
+        margin-left: 8px;
+        color: #d1d5db;
+    }
+    
+    .breadcrumb-nav li:last-child::after {
+        content: '';
+    }
+    
+    .fade-bottom {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 50%;
+        background: linear-gradient(to bottom, transparent, #f8fafb);
+        pointer-events: none;
     }
     
     .program-card {
@@ -88,27 +257,37 @@
 @endpush
 
 @section('content')
-<!-- Hero Section -->
-<section class="admission-hero">
+<!-- Hero Section with Blob Animation -->
+<section class="admission-header">
+    <div class="blob-wrapper">
+        <div class="blob b1"></div>
+        <div class="blob b2"></div>
+        <div class="blob b3"></div>
+        <div class="blob b4"></div>
+        <div class="blob b5"></div>
+    </div>
+    <div class="fade-bottom"></div>
     <div class="container">
-        <div class="row">
-            <div class="col-lg-8 mx-auto text-center text-white">
-                <h1 class="display-4 fw-bold mb-4">
-                    {{ $locale === 'kh' ? 'ចាប់ផ្តើមដំណើររបស់អ្នកនៅ NUMiLaw' : 'Begin Your Legal Journey at NUMiLaw' }}
-                </h1>
-                <p class="lead mb-4">
-                    {{ $locale === 'kh' 
-                        ? ' បណ្ឌិតសភាច្បាប់ រដ្ឋសាកលវិទ្យាល័យជាតិគ្រប់គ្រង - រៀនច្បាប់ ដើម្បីបង្កើតអនាគត'
-                        : 'Faculty of Law, National University of Management - Study Law, Build Your Future' }}
-                </p>
-                <div class="d-flex gap-3 justify-content-center">
-                    <a href="{{ route('admissions.apply') }}" class="btn btn-light btn-lg">
-                        {{ $locale === 'kh' ? 'Apply Now' : 'Apply Now' }}
-                    </a>
-                    <a href="{{ route('admissions.track') }}" class="btn btn-outline-light btn-lg">
-                        {{ $locale === 'kh' ? 'Track Application' : 'Track Application' }}
-                    </a>
-                </div>
+        <div class="header-content">
+            <ul class="breadcrumb-nav">
+                <li><a href="{{ url('/') }}">{{ $locale === 'kh' ? 'ទំព័រដេី' : 'Home' }}</a></li>
+                <li>{{ $locale === 'kh' ? 'ការទទួលយក' : 'Admissions' }}</li>
+            </ul>
+            <h1 class="header-title">
+                {{ $locale === 'kh' ? 'ចាប់ផ្តើមដំណើររបស់អ្នកនៅ NUMiLaw' : 'Begin Your Legal Journey at NUMiLaw' }}
+            </h1>
+            <p class="header-subtitle">
+                {{ $locale === 'kh' 
+                    ? ' បណ្ឌិតសភាច្បាប់ រដ្ឋសាកលវិទ្យាល័យជាតិគ្រប់គ្រង'
+                    : 'Faculty of Law, National University of Management' }}
+            </p>
+            <div class="d-flex gap-3 mt-4">
+                <a href="{{ route('admissions.apply') }}" class="btn btn-primary btn-lg" style="background: var(--brand-primary); border-color: var(--brand-primary);">
+                    {{ $locale === 'kh' ? 'ដាក់ពាក់ឥឡូវ' : 'Apply Now' }}
+                </a>
+                <a href="{{ route('admissions.track') }}" class="btn btn-outline-primary btn-lg" style="color: var(--brand-primary); border-color: var(--brand-primary);">
+                    {{ $locale === 'kh' ? 'តាមដំណើរពាក្យ' : 'Track Application' }}
+                </a>
             </div>
         </div>
     </div>

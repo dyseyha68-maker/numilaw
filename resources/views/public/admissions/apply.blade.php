@@ -4,59 +4,189 @@
 
 @push('styles')
 <style>
-    .apply-hero {
-        background: linear-gradient(135deg, #003A46 0%, #004d5c 100%);
-        padding: 60px 0;
+    :root {
+        --brand-primary: #003A46;
+        --brand-light: #005f73;
+        --brand-accent: #0a9396;
     }
     
-    .step-indicator {
-        display: flex;
-        justify-content: center;
-        margin-bottom: 40px;
-    }
-    
-    .step-indicator .step {
-        text-align: center;
+    .apply-header {
         position: relative;
+        overflow: hidden;
+        background: #f5f8ff;
+        min-height: 280px;
+        padding: 65px 0;
     }
-    
-    .step-indicator .step::after {
-        content: '';
+
+    .apply-header .blob-wrapper {
         position: absolute;
-        top: 20px;
-        left: 50%;
-        width: 100%;
-        height: 2px;
-        background: #e5e7eb;
-    }
-    
-    .step-indicator .step:last-child::after {
-        display: none;
-    }
-    
-    .step-indicator .step-number {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        background: #e5e7eb;
-        color: #6b7280;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0 auto 10px;
-        font-weight: bold;
-        position: relative;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
         z-index: 1;
     }
-    
-    .step-indicator .step.active .step-number,
-    .step-indicator .step.completed .step-number {
-        background: #003A46;
-        color: white;
+
+    .apply-header .blob {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(80px);
+        opacity: 0.038;
+        mix-blend-mode: multiply;
+    }
+
+    .apply-header .b1 {
+        width: 150%; height: 150%;
+        top: -50px; left: -25%;
+        animation: moveB1 14s ease-in-out infinite alternate, colorB1 10s ease-in-out infinite alternate;
+    }
+    .apply-header .b2 {
+        width: 140%; height: 140%;
+        top: -30px; left: -20%;
+        animation: moveB2 17s ease-in-out infinite alternate, colorB2 13s ease-in-out infinite alternate;
+    }
+    .apply-header .b3 {
+        width: 130%; height: 130%;
+        top: -10px; left: -15%;
+        animation: moveB3 20s ease-in-out infinite alternate, colorB3 8s ease-in-out infinite alternate;
+    }
+    .apply-header .b4 {
+        width: 120%; height: 120%;
+        top: 10px; left: -10%;
+        animation: moveB4 11s ease-in-out infinite alternate, colorB4 16s ease-in-out infinite alternate;
+    }
+    .apply-header .b5 {
+        width: 110%; height: 110%;
+        top: 30px; left: -5%;
+        animation: moveB5 15s ease-in-out infinite alternate, colorB5 12s ease-in-out infinite alternate;
+    }
+
+    @keyframes moveB1 {
+        0%   { transform: translate(0px, 0px) scale(1); }
+        50%  { transform: translate(-40px, 30px) scale(1.1); }
+        100% { transform: translate(20px, -40px) scale(0.92); }
+    }
+    @keyframes moveB2 {
+        0%   { transform: translate(0px, 0px) scale(1); }
+        50%  { transform: translate(35px, -25px) scale(0.93); }
+        100% { transform: translate(-20px, 40px) scale(1.08); }
+    }
+    @keyframes moveB3 {
+        0%   { transform: translate(0px, 0px) scale(1); }
+        50%  { transform: translate(-30px, -35px) scale(1.06); }
+        100% { transform: translate(40px, 20px) scale(0.94); }
+    }
+    @keyframes moveB4 {
+        0%   { transform: translate(0px, 0px) scale(1); }
+        50%  { transform: translate(25px, 30px) scale(1.05); }
+        100% { transform: translate(-35px, -20px) scale(0.96); }
+    }
+    @keyframes moveB5 {
+        0%   { transform: translate(0px, 0px) scale(1); }
+        50%  { transform: translate(-50px, 20px) scale(1.08); }
+        100% { transform: translate(30px, -30px) scale(0.95); }
+    }
+
+    @keyframes colorB1 {
+        0%   { background: #50e878; }
+        25%  { background: #c8f040; }
+        50%  { background: #30d8c0; }
+        75%  { background: #a0f060; }
+        100% { background: #50e878; }
+    }
+    @keyframes colorB2 {
+        0%   { background: #b8f050; }
+        25%  { background: #48e8c8; }
+        50%  { background: #a8f030; }
+        75%  { background: #68f028; }
+        100% { background: #b8f050; }
+    }
+    @keyframes colorB3 {
+        0%   { background: #28e8a0; }
+        25%  { background: #f0d830; }
+        50%  { background: #38e860; }
+        75%  { background: #d8f040; }
+        100% { background: #28e8a0; }
+    }
+    @keyframes colorB4 {
+        0%   { background: #c0f048; }
+        25%  { background: #38e8b8; }
+        50%  { background: #88f038; }
+        75%  { background: #18e888; }
+        100% { background: #c0f048; }
+    }
+    @keyframes colorB5 {
+        0%   { background: #58e870; }
+        25%  { background: #d0f028; }
+        50%  { background: #40e880; }
+        75%  { background: #f05840; }
+        100% { background: #58e870; }
     }
     
-    .step-indicator .step.active::after {
-        background: #003A46;
+    .header-content {
+        position: relative;
+        z-index: 2;
+        margin-top: 30px;
+    }
+    
+    .header-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: var(--brand-primary);
+        margin-bottom: 0.5rem;
+    }
+    
+    .header-subtitle {
+        font-size: 1.1rem;
+        color: #6b7280;
+    }
+    
+    .breadcrumb-nav {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        font-size: 0.875rem;
+    }
+    
+    .breadcrumb-nav li {
+        display: flex;
+        align-items: center;
+    }
+    
+    .breadcrumb-nav li a {
+        color: var(--brand-primary);
+        text-decoration: none;
+        opacity: 0.7;
+        transition: opacity 0.2s;
+    }
+    
+    .breadcrumb-nav li a:hover {
+        opacity: 1;
+    }
+    
+    .breadcrumb-nav li::after {
+        content: '/';
+        margin-left: 8px;
+        color: #d1d5db;
+    }
+    
+    .breadcrumb-nav li:last-child::after {
+        content: '';
+    }
+    
+    .fade-bottom {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 50%;
+        background: linear-gradient(to bottom, transparent, #f8fafb);
+        pointer-events: none;
     }
     
     .form-card {
@@ -70,19 +200,31 @@
 @endpush
 
 @section('content')
-<section class="apply-hero">
+<!-- Hero Section with Blob Animation -->
+<section class="apply-header">
+    <div class="blob-wrapper">
+        <div class="blob b1"></div>
+        <div class="blob b2"></div>
+        <div class="blob b3"></div>
+        <div class="blob b4"></div>
+        <div class="blob b5"></div>
+    </div>
+    <div class="fade-bottom"></div>
     <div class="container">
-        <div class="row">
-            <div class="col-lg-8 mx-auto text-center text-white">
-                <h1 class="display-5 fw-bold mb-3">
-                    {{ $locale === 'kh' ? 'ដាក់ពាក់កម្មវិធី' : 'Apply Now' }}
-                </h1>
-                <p class="mb-0 opacity-75">
-                    {{ $locale === 'kh' 
-                        ? 'បំពេញទំរង់ខាងក្រោមដើម្បីដាក់ពាក់'
-                        : 'Fill out the form below to apply' }}
-                </p>
-            </div>
+        <div class="header-content">
+            <ul class="breadcrumb-nav">
+                <li><a href="{{ url('/') }}">{{ $locale === 'kh' ? 'ទំព័រដេី' : 'Home' }}</a></li>
+                <li><a href="{{ route('admissions.index') }}">{{ $locale === 'kh' ? 'ការទទួលយក' : 'Admissions' }}</a></li>
+                <li>{{ $locale === 'kh' ? 'ដាក់ពាក់' : 'Apply Now' }}</li>
+            </ul>
+            <h1 class="header-title">
+                {{ $locale === 'kh' ? 'ដាក់ពាក់កម្មវិធី' : 'Apply Now' }}
+            </h1>
+            <p class="header-subtitle">
+                {{ $locale === 'kh' 
+                    ? 'បំពេញទំរង់ខាងក្រោមដើម្បីដាក់ពាក់'
+                    : 'Fill out the form below to apply' }}
+            </p>
         </div>
     </div>
 </section>
